@@ -23,16 +23,16 @@
 #include <stdint.h>
 
 // Main Settings
-#define	TM1637_DIO_PIN			PB0
-#define	TM1637_CLK_PIN			PB1
-#define	TM1637_DELAY_US			(5)
-#define	TM1637_BRIGHTNESS_MAX	(7)
-#define	TM1637_POSITION_MAX		(4)
+#define	TM1637_DIO_PIN          PB0
+#define	TM1637_CLK_PIN          PB1
+#define	TM1637_DELAY_US         (5)
+#define	TM1637_BRIGHTNESS_MAX   (7)
+#define	TM1637_POSITION_MAX     (4)
 
 // TM1637 commands
-#define	TM1637_CMD_SET_DATA		0x40
-#define	TM1637_CMD_SET_ADDR		0xC0
-#define	TM1637_CMD_SET_DSIPLAY	0x80
+#define	TM1637_CMD_SET_DATA     0x40
+#define	TM1637_CMD_SET_ADDR     0xC0
+#define	TM1637_CMD_SET_DSIPLAY  0x80
 #define TM1637_CMD_FIXED_ADDR   0x44
 
 //Two possible operative mode (command 0x40 or 0x44):
@@ -42,16 +42,16 @@
 //0x80 - display and control command setting
 
 // TM1637 data settings (use bitwise OR to contruct complete command)
-#define	TM1637_SET_DATA_WRITE		0x00 // write data to the display register
-#define	TM1637_SET_DATA_READ		0x02 // read the key scan data
-#define	TM1637_SET_DATA_A_ADDR		0x00 // automatic address increment
-#define	TM1637_SET_DATA_F_ADDR		0x04 // fixed address
-#define	TM1637_SET_DATA_M_NORM		0x00 // normal mode
-#define	TM1637_SET_DATA_M_TEST		0x10 // test mode
+#define	TM1637_SET_DATA_WRITE   0x00 // write data to the display register
+#define	TM1637_SET_DATA_READ    0x02 // read the key scan data
+#define	TM1637_SET_DATA_A_ADDR  0x00 // automatic address increment
+#define	TM1637_SET_DATA_F_ADDR  0x04 // fixed address
+#define	TM1637_SET_DATA_M_NORM  0x00 // normal mode
+#define	TM1637_SET_DATA_M_TEST  0x10 // test mode
 
 // TM1637 display control command set (use bitwise OR to consruct complete command)
-#define	TM1637_SET_DISPLAY_OFF		0x00 // off
-#define	TM1637_SET_DISPLAY_ON		0x08 // on
+#define	TM1637_SET_DISPLAY_OFF  0x00 // off
+#define	TM1637_SET_DISPLAY_ON   0x08 // on
 
 
 /**
