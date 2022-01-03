@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2017-2018, Łukasz Marcin Podkalicki <lpodkalicki@gmail.com>
+ * Updated by A.Vartanyan 01-2022
  *
  * This is ATtiny13/25/45/85 library for 4-Digit LED Display based on TM1637 chip.
  *
@@ -25,13 +26,20 @@
 #define	TM1637_DIO_PIN			PB0
 #define	TM1637_CLK_PIN			PB1
 #define	TM1637_DELAY_US			(5)
-#define	TM1637_BRIGHTNESS_MAX		(7)
+#define	TM1637_BRIGHTNESS_MAX	(7)
 #define	TM1637_POSITION_MAX		(4)
 
 // TM1637 commands
 #define	TM1637_CMD_SET_DATA		0x40
 #define	TM1637_CMD_SET_ADDR		0xC0
-#define	TM1637_CMD_SET_DSIPLAY		0x80
+#define	TM1637_CMD_SET_DSIPLAY	0x80
+#define TM1637_CMD_FIXED_ADDR   0x44
+
+//Two possible operative mode (command 0x40 or 0x44):
+//0x40 - with increasing car destination address: each data will be written progressively in successive addresses starting from the selected one
+//0x44 - normal operation mode. Fixed destination address: data are sent to the selected address only (also write command setting)
+//0xC0 - address command setting
+//0x80 - display and control command setting
 
 // TM1637 data settings (use bitwise OR to contruct complete command)
 #define	TM1637_SET_DATA_WRITE		0x00 // write data to the display register
@@ -97,6 +105,14 @@ void TM1637_display_digit(const uint8_t position, const uint8_t digit);
  * value: 1 - on, 0 - off
  */
 void TM1637_display_colon(const uint8_t value);
+
+/**
+ * @brief Print float number with decimal point and automatically adjusted precision
+ * @param float value
+ * For 4 digits display, the possible range is between -999 and 9999.
+ * The precision varies dependig by the number size up to 0.000
+ */
+TM1637_display_float(float f_value)
 
 /**
  * Clear all segments (including colon).
