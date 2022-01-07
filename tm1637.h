@@ -112,7 +112,7 @@ void TM1637_display_colon(const uint8_t value);
  * For 4 digits display, the possible range is between -999 and 9999.
  * The precision varies dependig by the number size up to 0.000
  */
-TM1637_display_float(float f_value)
+TM1637_display_float(float f_value);
 
 /**
  * Clear all segments (including colon).
