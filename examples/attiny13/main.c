@@ -21,6 +21,21 @@ main(void)
 
 	/* loop */
 	while (1) {
+        
+        // Test print float
+        float test_number = 99.99;
+        while (test_number > - 99.99) {
+            if (test_number > 5) {
+                test_number = test_number - 1.234;
+            } else if (test_number < 5 && test_number > - 5) {
+                test_number = test_number - 0.123;
+            } else {
+                test_number = test_number - 5.678;
+            }
+            TM1637_display_float(test_number);
+            _delay_ms(200);
+        }
+        
 		for (n = 0; n < TM1637_POSITION_MAX; ++n) {
 			TM1637_display_digit(n, (k + n) % 0x10);
 		}
